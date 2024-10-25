@@ -20,11 +20,11 @@ predicate isTest(Function test) {
 */
 predicate callsPressActionKey(Function caller, Function callee) {
   callee.getEnclosingFunction() = caller and
-  callee.getName() = "pressActionKey
+  callee.getName() = "pressActionKey"
 }
 
 from Function test, Function callee
 where isTest(test) and
       callsPressActionKey(test, callee)
-select caller, "test calls pressActionKey"
+select test, "test calls pressActionKey"
 
